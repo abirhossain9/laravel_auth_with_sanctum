@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\TasksResource;
+use App\Models\Task;
 use App\Traits\HttpResponses;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -13,16 +16,9 @@ class TaskController extends Controller
     use HttpResponses;
     public function index()
     {
-
-       return $this->success('', 'gg', );
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return TasksResource::collection(
+          Task::where('user_id', Auth::user()->id)->get()
+        );
     }
 
     /**
