@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\HttpResponses;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -9,9 +10,10 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
+    use HttpResponses;
     public function index()
     {
-        //
+       return $this->success('', 'gg', );
     }
 
     /**
