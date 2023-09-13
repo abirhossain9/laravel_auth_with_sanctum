@@ -13,6 +13,7 @@ class TaskController extends Controller
     use HttpResponses;
     public function index()
     {
+
        return $this->success('', 'gg', );
     }
 
